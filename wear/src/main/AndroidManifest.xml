@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.igeak.test.geakapidemo">
+
+    <uses-sdk
+        android:minSdkVersion="20"
+        android:targetSdkVersion="22" />
+
+    <uses-feature android:name="android.hardware.type.watch"></uses-feature>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault">
+        <service android:name="com.igeak.test.geakapidemo.DataLayerListenerService">
+            <intent-filter>
+                <action android:name="com.igeak.android.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.igeak.test.geakapidemo.FirstActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.igeak.test.geakapidemo.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.SensorActivity"
+            android:label="@string/title_activity_sensor" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.StepActivity"
+            android:label="@string/title_activity_step" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.WeatherActivity"
+            android:label="@string/title_activity_weather" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.CardActivity"
+            android:label="@string/title_activity_search" />
+
+        <service android:name="com.igeak.test.geakapidemo.WidgetService" />
+
+        <receiver android:name="com.igeak.test.geakapidemo.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- This specifies the widget provider info -->
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widgetinfo" />
+        </receiver>
+        <activity
+            android:name="com.igeak.test.geakapidemo.UiListActivity"
+            android:label="@string/title_activity_ui_list" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.BoxInsetActivity"
+            android:label="@string/title_activity_box_inset" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.CardFrameActivity"
+            android:label="@string/title_activity_card_frame" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.CircledImageActivity"
+            android:label="@string/title_activity_circled_image" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.ConfirmActivity"
+            android:label="@string/title_activity_confirmation" />
+        <activity android:name="android.support.wearable.activity.ConfirmationActivity" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.DissmissOverlayActivity"
+            android:label="@string/title_activity_dissmiss_overlay"
+            android:theme="@style/DismissTheme" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.PickerActivity"
+            android:label="@string/title_activity_picker" />
+        <activity
+            android:name="com.igeak.test.geakapidemo.WatchStubActivity"
+            android:label="@string/title_activity_watch_stub" />
+    </application>
+
+</manifest>
